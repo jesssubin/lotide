@@ -3,17 +3,13 @@
 
 const assertEqual = function(actual, expected) {
   
-  if (console.assert === true) {
+  if (actual === expected) {
     console.log("✅✅✅ Assertion Passed: " + actual + " === " + expected);
-  } else if (console.assert !== true) {
+    return `${actual} is equal to ${expected}`;
+  } else if (actual !== expected) {
     console.log("🛑🛑🛑 Assertion Failed: " + actual + " !== " + expected);
+    return `${actual} is not equal to ${expected}`;
   }
-
-  return actual + " is equal to " + expected;
 };
 
-// TEST CODE
-
-console.assert(assertEqual("Lighthouse Labs", "Bootcamp") === "Lighthouse Labs is equal to Bootcamp");
-console.assert(assertEqual(1, 1) === "1 is equal to 1");
-
+module.exports = assertEqual;
